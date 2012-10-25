@@ -527,6 +527,22 @@ function processRequest(req, res, next) {
             options.headers = headers;
         }
 
+        // Set api default headers, if any
+        if (config.headers && config.headers.length > 0) {
+            if (config.debug) {
+                console.log('Setting default headers');
+            }
+
+            for (var key in config.headers) {
+                if (!options.headers[key]) {
+                    if (config.debug) {
+                        console.log('Setting header: ' + key + ':' + config.headers[key]);
+                    }
+                    options.headers[key] = config.headers[key];
+                }
+            }
+        }
+
         if (!options.headers['Content-Length']) {
             if (requestBody) {
                 options.headers['Content-Length'] = requestBody.length;
