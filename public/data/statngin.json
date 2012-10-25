@@ -1,0 +1,1730 @@
+{
+    "endpoints": [
+        {
+            "name": "Subdivisions(???)",
+            "methods": [
+                {
+                    "MethodName": "add_division",
+                    "Synopsis": "Add a subdivision to a division",
+                    "HTTPMethod": "PUT",
+                    "URI": "/subseasons/:id/divisions/:parent_division_id/add_division/:child_division_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        },
+                        {
+                            "Name": "parent_division_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the parent division "
+                        },
+                        {
+                            "Name": "child_division_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subdivision to be added "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "add_team",
+                    "Synopsis": "Add a team to a division",
+                    "HTTPMethod": "PUT",
+                    "URI": "/subseasons/:id/divisions/:division_id/add_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the parent division "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team to be added "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "remove_division",
+                    "Synopsis": "Remove a subdivision from a division",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/subseasons/:id/divisions/:parent_division_id/remove_division/:child_division_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        },
+                        {
+                            "Name": "parent_division_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the parent division "
+                        },
+                        {
+                            "Name": "child_division_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subdivision to be added "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "remove_team",
+                    "Synopsis": "Remove a team from a division",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/subseasons/:id/divisions/:division_id/remove_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the parent division "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team to be added "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Division",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all divisions",
+                    "HTTPMethod": "GET",
+                    "URI": "/divisions",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "league_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the league the divisions belong to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new division",
+                    "HTTPMethod": "POST",
+                    "URI": "/divisions",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the division "
+                        },
+                        {
+                            "Name": "league_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the league this division belongs to "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a division",
+                    "HTTPMethod": "GET",
+                    "URI": "/divisions/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a division",
+                    "HTTPMethod": "PUT",
+                    "URI": "/divisions/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division "
+                        },
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the division "
+                        },
+                        {
+                            "Name": "league_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the league this division belongs to "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a division",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/divisions/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Flight",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all flights",
+                    "HTTPMethod": "GET",
+                    "URI": "/flights",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "tournament_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament the flights belong to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new flight",
+                    "HTTPMethod": "POST",
+                    "URI": "/flights",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the flight "
+                        },
+                        {
+                            "Name": "min_teams",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The minimum number of teams in the flight"
+                        },
+                        {
+                            "Name": "max_teams",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The maximum number of teams in the flight"
+                        },
+                        {
+                            "Name": "play_format",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The play format of the flight"
+                        },
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The subseason_id of the flight"
+                        },
+                        {
+                            "Name": "tournament_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The tournament_id of the flight"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a flight",
+                    "HTTPMethod": "GET",
+                    "URI": "/flights/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a flight",
+                    "HTTPMethod": "PUT",
+                    "URI": "/flights/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "name",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the flight"
+                        },
+                        {
+                            "Name": "min_teams",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The minimum number of teams in the flight"
+                        },
+                        {
+                            "Name": "max_teams",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The maximum number of teams in the flight"
+                        },
+                        {
+                            "Name": "play_format",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The play format of the flight"
+                        },
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The subseason_id of the flight"
+                        },
+                        {
+                            "Name": "tournament_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The tournament_id of the flight"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a flight",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/flights/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Game",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all games for a team or subseason",
+                    "HTTPMethod": "GET",
+                    "URI": "/games",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "team_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team the games belong to"
+                        },
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason the games belong to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new game",
+                    "HTTPMethod": "POST",
+                    "URI": "/games",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "status",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "One of: ['scheduled','in_progress','completed','unscheduled','delayed','cancelled','forfeited']"
+                        },
+                        {
+                            "Name": "starts_at",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Date",
+                            "Description": "The start date/time for the game"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a game",
+                    "HTTPMethod": "GET",
+                    "URI": "/games/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the game "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a game",
+                    "HTTPMethod": "PUT",
+                    "URI": "/games/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the game "
+                        },
+                        {
+                            "Name": "status",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "One of: ['scheduled','in_progress','completed','unscheduled','delayed','cancelled','forfeited']"
+                        },
+                        {
+                            "Name": "starts_at",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Date",
+                            "Description": "The start date/time for the game"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a game",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/games/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the game "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "League",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all leagues",
+                    "HTTPMethod": "GET",
+                    "URI": "/leagues",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "program_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the program the leagues belong to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new league",
+                    "HTTPMethod": "POST",
+                    "URI": "/leagues",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the league "
+                        },
+                        {
+                            "Name": "sport_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The sport_id of the league "
+                        },
+                        {
+                            "Name": "org_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The org_id of the league"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a league",
+                    "HTTPMethod": "GET",
+                    "URI": "/leagues/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the league "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a league",
+                    "HTTPMethod": "PUT",
+                    "URI": "/leagues/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the league "
+                        },
+                        {
+                            "Name": "name",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the league"
+                        },
+                        {
+                            "Name": "sport_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The sport_id of the league"
+                        },
+                        {
+                            "Name": "org_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The org_id of the league"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a league",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/leagues/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the league "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Player",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all players on a roster. Requires either team_instance_id or team_id and season_id.",
+                    "HTTPMethod": "GET",
+                    "URI": "/players",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "team_instance_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team instance the players belong to"
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team the players belong to"
+                        },
+                        {
+                            "Name": "season_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the season the players belong to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new player",
+                    "HTTPMethod": "POST",
+                    "URI": "/players",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "roster_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the roster the player belongs to "
+                        },
+                        {
+                            "Name": "persona_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The persona_id of the player "
+                        },
+                        {
+                            "Name": "jersey_number",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The jersey number of the player"
+                        },
+                        {
+                            "Name": "positions",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Array",
+                            "Description": "The positions of the player"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a player",
+                    "HTTPMethod": "GET",
+                    "URI": "/players/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the player "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a player",
+                    "HTTPMethod": "PUT",
+                    "URI": "/players/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the player "
+                        },
+                        {
+                            "Name": "roster_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the roster the player belongs to"
+                        },
+                        {
+                            "Name": "persona_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The persona_id of the player"
+                        },
+                        {
+                            "Name": "jersey_number",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The jersey number of the player"
+                        },
+                        {
+                            "Name": "positions",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Array",
+                            "Description": "The positions of the player"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a player",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/players/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the player "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Program",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all programs",
+                    "HTTPMethod": "GET",
+                    "URI": "/programs",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "org_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the organization the programs belong to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new program",
+                    "HTTPMethod": "POST",
+                    "URI": "/programs",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the program "
+                        },
+                        {
+                            "Name": "org_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the organization this program belongs to "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a program",
+                    "HTTPMethod": "GET",
+                    "URI": "/programs/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the program "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a program",
+                    "HTTPMethod": "PUT",
+                    "URI": "/programs/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the program "
+                        },
+                        {
+                            "Name": "name",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the program"
+                        },
+                        {
+                            "Name": "org_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the organization the program belongs to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a program",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/programs/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the program "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Roster",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns the roster for a team in a season",
+                    "HTTPMethod": "GET",
+                    "URI": "/seasons/:season_id/teams/:team_id/rosters",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "season_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the season the roster belongs to "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team the roster belongs to "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Season",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all seasons. Requires one of tournament_id or league_id.",
+                    "HTTPMethod": "GET",
+                    "URI": "/seasons",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "tournament_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament the seasons belong to"
+                        },
+                        {
+                            "Name": "league_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the league the seasons belong to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new season. Requires one of tournament_id or league_id.",
+                    "HTTPMethod": "POST",
+                    "URI": "/seasons",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the season "
+                        },
+                        {
+                            "Name": "sport_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The sport_id of the season"
+                        },
+                        {
+                            "Name": "tournament_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The tournament_id of the season"
+                        },
+                        {
+                            "Name": "league_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The league_id of the season"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a season",
+                    "HTTPMethod": "GET",
+                    "URI": "/seasons/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the season "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a season. Requires one of tournament_id or league_id.",
+                    "HTTPMethod": "PUT",
+                    "URI": "/seasons/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the season "
+                        },
+                        {
+                            "Name": "name",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the season"
+                        },
+                        {
+                            "Name": "sport_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The sport_id of the season"
+                        },
+                        {
+                            "Name": "tournament_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The tournament_id of the season"
+                        },
+                        {
+                            "Name": "league_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The league_id of the season"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a season",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/seasons/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the season "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Standings",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns standings for all divisions in a league",
+                    "HTTPMethod": "GET",
+                    "URI": "/subseasons/:subseason_id/standings",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns standings for all divisions in a league",
+                    "HTTPMethod": "GET",
+                    "URI": "/subseasons/:subseason_id/teams/:pool_id/standings",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns standings for all divisions in a league",
+                    "HTTPMethod": "GET",
+                    "URI": "/subseasons/:subseason_id/divisions/:division_id/standings",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns standings for all divisions in a league",
+                    "HTTPMethod": "GET",
+                    "URI": "/subseasons/:subseason_id/teams/:team_id/standings",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Subseason",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all subseasons",
+                    "HTTPMethod": "GET",
+                    "URI": "/subseasons",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "season_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the season the subseasons belong to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new subseason",
+                    "HTTPMethod": "POST",
+                    "URI": "/subseasons",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the subseason "
+                        },
+                        {
+                            "Name": "season_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the season this subseason belongs to "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a subseason",
+                    "HTTPMethod": "GET",
+                    "URI": "/subseasons/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a subseason",
+                    "HTTPMethod": "PUT",
+                    "URI": "/subseasons/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        },
+                        {
+                            "Name": "name",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the subseason"
+                        },
+                        {
+                            "Name": "season_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the season this subseason belongs to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a subseason",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/subseasons/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "add_division",
+                    "Synopsis": "Add a division to a subseason",
+                    "HTTPMethod": "PUT",
+                    "URI": "/subseasons/:id/add_division/:division_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division to be added "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "add_team",
+                    "Synopsis": "Add a team to a subseason",
+                    "HTTPMethod": "PUT",
+                    "URI": "/subseasons/:id/add_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team to be added "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "remove_division",
+                    "Synopsis": "Remove a division from a subseason",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/subseasons/:id/remove_division/:division_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division to be removed "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "remove_team",
+                    "Synopsis": "Remove a team from a subseason",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/subseasons/:id/remove_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team to be removed "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "TeamInstance(??)",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all teams in a season",
+                    "HTTPMethod": "GET",
+                    "URI": "/seasons/:season_id/teams",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "season_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The season id to get the teams for"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a team in a season",
+                    "HTTPMethod": "GET",
+                    "URI": "/seasons/:season_id/teams/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "season_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the season "
+                        },
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Team",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all teams",
+                    "HTTPMethod": "GET",
+                    "URI": "/teams",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "org_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the organization the teams belong to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new team",
+                    "HTTPMethod": "POST",
+                    "URI": "/teams",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the team "
+                        },
+                        {
+                            "Name": "sport_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The sport_id of the team "
+                        },
+                        {
+                            "Name": "org_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The org_id of the team"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a team",
+                    "HTTPMethod": "GET",
+                    "URI": "/teams/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a team",
+                    "HTTPMethod": "PUT",
+                    "URI": "/teams/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
+                        },
+                        {
+                            "Name": "name",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the team"
+                        },
+                        {
+                            "Name": "sport_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The sport_id of the team"
+                        },
+                        {
+                            "Name": "org_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The org_id of the team"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a team",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/teams/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tournament",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all tournaments",
+                    "HTTPMethod": "GET",
+                    "URI": "/tournaments",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "program_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the program the tournaments belong to"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new tournament",
+                    "HTTPMethod": "POST",
+                    "URI": "/tournaments",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the tournament "
+                        },
+                        {
+                            "Name": "sport_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The sport_id of the tournament "
+                        },
+                        {
+                            "Name": "program_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The program_id of the tournament"
+                        },
+                        {
+                            "Name": "start_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Date",
+                            "Description": "The start date of the tournament"
+                        },
+                        {
+                            "Name": "end_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Date",
+                            "Description": "The end date of the tournament"
+                        },
+                        {
+                            "Name": "hq",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The tournament headquarters"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a tournament",
+                    "HTTPMethod": "GET",
+                    "URI": "/tournaments/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a tournament",
+                    "HTTPMethod": "PUT",
+                    "URI": "/tournaments/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament "
+                        },
+                        {
+                            "Name": "name",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the tournament"
+                        },
+                        {
+                            "Name": "sport_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The sport_id of the tournament"
+                        },
+                        {
+                            "Name": "program_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The program_id of the tournament"
+                        },
+                        {
+                            "Name": "start_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Date",
+                            "Description": "The start date of the tournament"
+                        },
+                        {
+                            "Name": "end_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Date",
+                            "Description": "The end date of the tournament"
+                        },
+                        {
+                            "Name": "hq",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The tournament headquarters"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a tournament",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/tournaments/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament "
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
