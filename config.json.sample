@@ -3,6 +3,7 @@
     "address": "0.0.0.0",
     "port" : 3000,
     "debug" : false,
+    "auth": false,
     "sessionSecret" : "12345",
     "redis" : {
                 "host" : "localhost",

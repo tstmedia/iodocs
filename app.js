@@ -78,7 +78,12 @@ fs.readFile(__dirname +'/public/data/apiconfig.json', 'utf-8', function(err, dat
     }
 });
 
-var app = module.exports = express.createServer();
+if (config.auth) {
+    auth = express.basicAuth(process.env.AUTH_USERNAME || '',process.env.AUTH_PASSWORD || '');
+    var app = module.exports = express.createServer(auth);
+} else {
+    var app = module.exports = express.createServer(auth);
+}
 
 if (process.env.REDISTOGO_URL) {
     var rtg   = require("url").parse(process.env.REDISTOGO_URL);
