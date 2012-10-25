@@ -92,6 +92,11 @@ if (process.env.REDISTOGO_URL) {
     config.redis.password = rtg.auth.split(":")[1];
 }
 
+if (process.env.STAT_NGIN_API_TOKEN) {
+    config.headers = {"STAT-NGIN-API-TOKEN": process.env.STAT_NGIN_API_TOKEN,
+                      "Access": "application/json,application/vnd.stat-ngin.v2"}
+}
+
 app.configure(function() {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
