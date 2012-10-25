@@ -679,9 +679,15 @@ app.dynamicHelpers({
 // Routes
 //
 app.get('/', function(req, res) {
-    res.render('listAPIs', {
-        title: config.title
-    });
+    // Redirect to the first api in apiconfig
+    var api;
+    for (var key in apisConfig) {
+        api = key;
+    }
+    res.redirect('/' + api);
+    // res.render('listAPIs', {
+    //     title: config.title
+    // });
 });
 
 // Process the API request
