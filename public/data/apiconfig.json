@@ -4,6 +4,7 @@
         "protocol": "http",
         "baseURL": "api-stat-ngin.stage.ngin-staging.com",
         "publicPath": "",
-        "keyParam":""
+        "auth":"key",
+        "keyParam":"access_token"
     }
 }
