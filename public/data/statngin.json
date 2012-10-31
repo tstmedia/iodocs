@@ -1,6 +1,105 @@
 {
     "endpoints": [
         {
+            "name": "Bracket",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all brackets for a flight stage",
+                    "HTTPMethod": "GET",
+                    "URI": "/brackets",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_stage_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight stage the brackets belong to "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new bracket for a flight stage",
+                    "HTTPMethod": "POST",
+                    "URI": "/brackets",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_stage_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight stage "
+                        },
+                        {
+                            "Name": "label",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The label of the bracket "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a bracket",
+                    "HTTPMethod": "GET",
+                    "URI": "/brackets/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the bracket "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a bracket",
+                    "HTTPMethod": "PUT",
+                    "URI": "/brackets/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the bracket "
+                        },
+                        {
+                            "Name": "label",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The label of the bracket "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a bracket",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/brackets/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the bracket "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Subdivisions(???)",
             "methods": [
                 {
@@ -226,6 +325,280 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the division "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "FlightStage",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all flight stages for a flight",
+                    "HTTPMethod": "GET",
+                    "URI": "/flights/:flight_id/flight_stages",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight the flight stages belong to "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new flight stage",
+                    "HTTPMethod": "POST",
+                    "URI": "/flights/:flight_id/flight_stages",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "type",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The type of the flight stage, one of ['pool','single_elim','double_elim','round_robin'] "
+                        },
+                        {
+                            "Name": "position",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The position of the flight stage in the flight"
+                        },
+                        {
+                            "Name": "seeding_method",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The method to use when seeding the flight stage, one of [TBD]"
+                        },
+                        {
+                            "Name": "advance",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of teams that should advance from this pool [Pool Play]"
+                        },
+                        {
+                            "Name": "rounds",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of rounds [Pool Play]"
+                        },
+                        {
+                            "Name": "pool_count",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of pools [Pool Play]"
+                        },
+                        {
+                            "Name": "teams_per_pool",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of teams per pool [Pool Play]"
+                        },
+                        {
+                            "Name": "games_per_team",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of games per team [Pool Play]"
+                        },
+                        {
+                            "Name": "third_place",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Boolean",
+                            "Description": "Whether a third place game should be played [Single Elimination]"
+                        },
+                        {
+                            "Name": "consolation",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Boolean",
+                            "Description": "Whether a consolation bracket should be played [Single Elimination]"
+                        },
+                        {
+                            "Name": "full_elimination",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "TBD [Double Elimination]"
+                        },
+                        {
+                            "Name": "extra_brackets",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "TBD [Double Elimination]"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a flight stage",
+                    "HTTPMethod": "GET",
+                    "URI": "/flights/:flight_id/flight_stages/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight stage "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a flight stage",
+                    "HTTPMethod": "PUT",
+                    "URI": "/flights/:flight_id/flight_stages/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight stage "
+                        },
+                        {
+                            "Name": "type",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The type of the flight stage, one of ['pool','single_elim','double_elim','round_robin'] "
+                        },
+                        {
+                            "Name": "position",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The position of the flight stage in the flight"
+                        },
+                        {
+                            "Name": "seeding_method",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The method to use when seeding the flight stage, one of [TBD]"
+                        },
+                        {
+                            "Name": "advance",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of teams that should advance from this pool [Pool Play]"
+                        },
+                        {
+                            "Name": "rounds",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of rounds [Pool Play]"
+                        },
+                        {
+                            "Name": "pool_count",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of pools [Pool Play]"
+                        },
+                        {
+                            "Name": "teams_per_pool",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of teams per pool [Pool Play]"
+                        },
+                        {
+                            "Name": "games_per_team",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of games per team [Pool Play]"
+                        },
+                        {
+                            "Name": "third_place",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Boolean",
+                            "Description": "Whether a third place game should be played [Single Elimination]"
+                        },
+                        {
+                            "Name": "consolation",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Boolean",
+                            "Description": "Whether a consolation bracket should be played [Single Elimination]"
+                        },
+                        {
+                            "Name": "full_elimination",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "TBD [Double Elimination]"
+                        },
+                        {
+                            "Name": "extra_brackets",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "TBD [Double Elimination]"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a flight stage",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/flights/:flight_id/flight_stages/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight stage "
                         }
                     ]
                 }
@@ -769,6 +1142,151 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the player "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Pool",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all pools for a flight stage",
+                    "HTTPMethod": "GET",
+                    "URI": "/pools",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_stage_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight stage the pools belong to "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "create",
+                    "Synopsis": "Create a new pool for a flight stage",
+                    "HTTPMethod": "POST",
+                    "URI": "/pools",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_stage_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight stage "
+                        },
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the pool, e.g. Red Pool, Blue Pool "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a pool",
+                    "HTTPMethod": "GET",
+                    "URI": "/pools/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Update a pool",
+                    "HTTPMethod": "PUT",
+                    "URI": "/pools/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool "
+                        },
+                        {
+                            "Name": "name",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The name of the pool, e.g. Red Pool, Blue Pool "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Delete a pool",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/pools/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "add_team",
+                    "Synopsis": "Add a team to a pool",
+                    "HTTPMethod": "PUT",
+                    "URI": "/pools/:id/add_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team to be added "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "remove_team",
+                    "Synopsis": "Remove a team from a pool",
+                    "HTTPMethod": "PUT",
+                    "URI": "/pools/:id/remove_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team to be removed "
                         }
                     ]
                 }
@@ -1407,7 +1925,7 @@
                     "MethodName": "index",
                     "Synopsis": "Returns all teams in a season",
                     "HTTPMethod": "GET",
-                    "URI": "/seasons/:season_id/teams",
+                    "URI": "/subseasons/:subseason_id/teams",
                     "RequiresOAuth": "Y",
                     "parameters": [
                         {
@@ -1423,7 +1941,7 @@
                     "MethodName": "show",
                     "Synopsis": "Show a team in a season",
                     "HTTPMethod": "GET",
-                    "URI": "/seasons/:season_id/teams/:id",
+                    "URI": "/subseasons/:subseason_id/teams/:id",
                     "RequiresOAuth": "Y",
                     "parameters": [
                         {
