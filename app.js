@@ -82,7 +82,7 @@ if (config.auth) {
     auth = express.basicAuth(process.env.AUTH_USERNAME || '',process.env.AUTH_PASSWORD || '');
     var app = module.exports = express.createServer(auth);
 } else {
-    var app = module.exports = express.createServer(auth);
+    var app = module.exports = express.createServer();
 }
 
 if (process.env.REDISTOGO_URL) {
@@ -91,10 +91,9 @@ if (process.env.REDISTOGO_URL) {
     config.redis.port = rtg.port;
     config.redis.password = rtg.auth.split(":")[1];
 }
-
 if (process.env.STAT_NGIN_API_TOKEN) {
     config.headers = {"STAT-NGIN-API-TOKEN": process.env.STAT_NGIN_API_TOKEN,
-                      "Access": "application/json,application/vnd.stat-ngin.v2"}
+                      "Accept": "application/json,application/vnd.stat-ngin.v2"}
 }
 
 app.configure(function() {
@@ -533,7 +532,7 @@ function processRequest(req, res, next) {
         }
 
         // Set api default headers, if any
-        if (config.headers && config.headers.length > 0) {
+        if (config.headers) {
             if (config.debug) {
                 console.log('Setting default headers');
             }
