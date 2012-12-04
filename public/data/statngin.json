@@ -657,20 +657,6 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The play format of the flight"
-                        },
-                        {
-                            "Name": "subseason_id",
-                            "Required": "N",
-                            "Default": "",
-                            "Type": "String",
-                            "Description": "The subseason_id of the flight"
-                        },
-                        {
-                            "Name": "tournament_id",
-                            "Required": "N",
-                            "Default": "",
-                            "Type": "String",
-                            "Description": "The tournament_id of the flight"
                         }
                     ]
                 },
@@ -761,6 +747,98 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the flight "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "add_team",
+                    "Synopsis": "Add a team to a flight",
+                    "HTTPMethod": "PUT",
+                    "URI": "/flights/:id/add_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "remove_team",
+                    "Synopsis": "Remove a team from a flight",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/flights/:id/remove_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "add_to_waitlist",
+                    "Synopsis": "Add a team to a flight's waitlist",
+                    "HTTPMethod": "PUT",
+                    "URI": "/flights/:id/add_to_waitlist/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "remove_from_waitlist",
+                    "Synopsis": "Add a team to a flight's waitlist",
+                    "HTTPMethod": "PUT",
+                    "URI": "/flights/:id/add_to_waitlist/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
                         }
                     ]
                 }
@@ -1423,6 +1501,22 @@
                             "Description": "The id of the team the roster belongs to "
                         }
                     ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Show a roster",
+                    "HTTPMethod": "GET",
+                    "URI": "/rosters/:id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the roster "
+                        }
+                    ]
                 }
             ]
         },
@@ -1715,6 +1809,272 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the subseason to get the standings for"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "StandingsModule",
+            "methods": [
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Returns standings module for a sport",
+                    "HTTPMethod": "GET",
+                    "URI": "/sports/:sport_id/standings_modules",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "program_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the program the leagues belong to"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "StandingsPreference",
+            "methods": [
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Returns standings preferences for a resource",
+                    "HTTPMethod": "GET",
+                    "URI": "/subseasons/:subseason_id/standings_preferences/",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool to get the standings for"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division to get the standings for"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Returns standings preferences for a resource",
+                    "HTTPMethod": "GET",
+                    "URI": "/subseasons/:subseason_id/pools/:pool_id/standings_preferences/",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool to get the standings for"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division to get the standings for"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Returns standings preferences for a resource",
+                    "HTTPMethod": "GET",
+                    "URI": "/subseasons/:subseason_id/divisions/:division_id/standings_preferences",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason to get the standings for"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool to get the standings for"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division to get the standings for"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Updates standings preferences for a resource",
+                    "HTTPMethod": "PUT",
+                    "URI": "/subseasons/:subseason_id/standings_preferences/",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Updates standings preferences for a resource",
+                    "HTTPMethod": "PUT",
+                    "URI": "/subseasons/:subseason_id/pools/:pool_id/standings_preferences/",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Updates standings preferences for a resource",
+                    "HTTPMethod": "PUT",
+                    "URI": "/subseasons/:subseason_id/divisions/:division_id/standings_preferences",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Removes standings preferences for a resource. Note that standings preferences may not be removed from a subseason",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/subseasons/:subseason_id/pools/:pool_id/standings_preferences/",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "destroy",
+                    "Synopsis": "Removes standings preferences for a resource. Note that standings preferences may not be removed from a subseason",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/subseasons/:subseason_id/divisions/:division_id/standings_preferences",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "subseason_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the subseason"
+                        },
+                        {
+                            "Name": "pool_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the pool"
+                        },
+                        {
+                            "Name": "division_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the division"
                         }
                     ]
                 }
@@ -2239,6 +2599,68 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the tournament "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "teams",
+                    "Synopsis": "Lists teams that are entered in the tournament, with their current flight, if any",
+                    "HTTPMethod": "GET",
+                    "URI": "/tournaments/:id/teams/",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "add_team",
+                    "Synopsis": "Adds a team to the tournament, to be added to a flight later",
+                    "HTTPMethod": "PUT",
+                    "URI": "/tournaments/:tournament_id/add_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "remove_team",
+                    "Synopsis": "Removes a team from the tournament, if it has not yet been added to a flight. Will not remove a team that has already been added to a flight. Use flights#remove_team.",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/tournaments/:tournament_id/remove_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
                         }
                     ]
                 }
