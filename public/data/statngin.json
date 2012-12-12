@@ -389,7 +389,14 @@
                             "Required": "N",
                             "Default": "",
                             "Type": "Integer",
-                            "Description": "The number of teams that should advance from this pool [Pool Play]"
+                            "Description": "The minimum number of teams that should advance from this pool [Pool Play]"
+                        },
+                        {
+                            "Name": "wild_cards",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of wild card teams that should advance among all pools [Pool Play]"
                         },
                         {
                             "Name": "rounds",
@@ -522,6 +529,13 @@
                             "Description": "The number of teams that should advance from this pool [Pool Play]"
                         },
                         {
+                            "Name": "wild_cards",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of wild card teams that should advance among all pools [Pool Play]"
+                        },
+                        {
                             "Name": "rounds",
                             "Required": "N",
                             "Default": "",
@@ -576,6 +590,13 @@
                             "Default": "",
                             "Type": "Integer",
                             "Description": "TBD [Double Elimination]"
+                        },
+                        {
+                            "Name": "seeds",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Array",
+                            "Description": "Array of hashes. Hash keys are 'team_id' and 'seed'"
                         }
                     ]
                 },
@@ -657,6 +678,13 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The play format of the flight"
+                        },
+                        {
+                            "Name": "desription",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The flight description"
                         }
                     ]
                 },
@@ -731,6 +759,13 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The tournament_id of the flight"
+                        },
+                        {
+                            "Name": "desription",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The flight description"
                         }
                     ]
                 },
@@ -1658,6 +1693,19 @@
                             "Description": "The id of the season "
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name": "Sport",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all sports.",
+                    "HTTPMethod": "GET",
+                    "URI": "/sports",
+                    "RequiresOAuth": "Y",
+                    "parameters": []
                 }
             ]
         },
@@ -2661,6 +2709,45 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the team "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show_flight_defaults",
+                    "Synopsis": "Shows flight defaults for the tournament",
+                    "HTTPMethod": "GET",
+                    "URI": "/tournaments/:tournament_id/flight_defaults",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "edit_flight_defaults",
+                    "Synopsis": "Edits flight defaults for the tournament, including default flight stage settings. If a flight_stage_template id is passed, it will attempt to update an existing flight_stage_template. If an existing flight_stage_template is omitted from the flight_stage_templates parameter, it will delete this template. If the flight_stage_template does not currently exist, it will create it. Please refer to the FlightStage resource for a list of valid paramters for flight stage templates.",
+                    "HTTPMethod": "PUT",
+                    "URI": "/tournaments/:tournament_id/flight_defaults",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament "
+                        },
+                        {
+                            "Name": "flight_stage_templates",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Array",
+                            "Description": "Flight stage templates (needs documentation)"
                         }
                     ]
                 }
