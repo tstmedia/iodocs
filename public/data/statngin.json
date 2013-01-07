@@ -263,6 +263,20 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the league this division belongs to "
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -309,6 +323,20 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the league this division belongs to "
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -1098,6 +1126,20 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The org_id of the league"
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -1151,6 +1193,20 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The org_id of the league"
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -2128,7 +2184,7 @@
                 },
                 {
                     "MethodName": "destroy",
-                    "Synopsis": "Removes standings preferences for a resource. Note that standings preferences may not be \nremoved from a subseason",
+                    "Synopsis": "Removes standings preferences for a resource. Note that standings preferences may not be removed from a subseason",
                     "HTTPMethod": "DELETE",
                     "URI": "/subseasons/:subseason_id/pools/:pool_id/standings_preferences/",
                     "RequiresOAuth": "Y",
@@ -2158,7 +2214,7 @@
                 },
                 {
                     "MethodName": "destroy",
-                    "Synopsis": "Removes standings preferences for a resource. Note that standings preferences may not be \nremoved from a subseason",
+                    "Synopsis": "Removes standings preferences for a resource. Note that standings preferences may not be removed from a subseason",
                     "HTTPMethod": "DELETE",
                     "URI": "/subseasons/:subseason_id/divisions/:division_id/standings_preferences",
                     "RequiresOAuth": "Y",
@@ -2474,8 +2530,22 @@
                             "Name": "org_id",
                             "Required": "N",
                             "Default": "",
-                            "Type": "String",
+                            "Type": "Array",
                             "Description": "The org_id of the team"
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -2527,8 +2597,22 @@
                             "Name": "org_id",
                             "Required": "N",
                             "Default": "",
-                            "Type": "String",
+                            "Type": "Array",
                             "Description": "The org_id of the team"
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -2551,13 +2635,26 @@
             ]
         },
         {
+            "name": "TiebreakCriteria",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns tiebreak criteria",
+                    "HTTPMethod": "GET",
+                    "URI": "/tiebreak_criteria",
+                    "RequiresOAuth": "Y",
+                    "parameters": []
+                }
+            ]
+        },
+        {
             "name": "TiebreakPreference",
             "methods": [
                 {
                     "MethodName": "show",
                     "Synopsis": "Returns tiebreaker preferences for a resource",
                     "HTTPMethod": "GET",
-                    "URI": "/tournaments/:tournament_id/tiebreak_preferences/",
+                    "URI": "/tournaments/:tournament_id/tiebreak_preference/",
                     "RequiresOAuth": "Y",
                     "parameters": [
                         {
@@ -2566,13 +2663,6 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the tournament to get the tiebreaker preferences for"
-                        },
-                        {
-                            "Name": "flight_stage_id",
-                            "Required": "N",
-                            "Default": "",
-                            "Type": "String",
-                            "Description": "The id of the flight stage to get the tiebreaker preferences for"
                         },
                         {
                             "Name": "flight_id",
@@ -2587,7 +2677,7 @@
                     "MethodName": "show",
                     "Synopsis": "Returns tiebreaker preferences for a resource",
                     "HTTPMethod": "GET",
-                    "URI": "/flights/:flight_id/flight_stages/:flight_stage_id/tiebreak_preferences/",
+                    "URI": "/flights/:flight_id/tiebreak_preference/",
                     "RequiresOAuth": "Y",
                     "parameters": [
                         {
@@ -2596,13 +2686,6 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the tournament to get the tiebreaker preferences for"
-                        },
-                        {
-                            "Name": "flight_stage_id",
-                            "Required": "N",
-                            "Default": "",
-                            "Type": "String",
-                            "Description": "The id of the flight stage to get the tiebreaker preferences for"
                         },
                         {
                             "Name": "flight_id",
@@ -2617,7 +2700,7 @@
                     "MethodName": "update",
                     "Synopsis": "Updates tiebreaker preferences for a resource",
                     "HTTPMethod": "PUT",
-                    "URI": "/tournaments/:tournament_id/tiebreak_preferences/",
+                    "URI": "/tournaments/:tournament_id/tiebreak_preference/",
                     "RequiresOAuth": "Y",
                     "parameters": [
                         {
@@ -2626,13 +2709,6 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the tournament"
-                        },
-                        {
-                            "Name": "flight_stage_id",
-                            "Required": "N",
-                            "Default": "",
-                            "Type": "String",
-                            "Description": "The id of the flight stage"
                         },
                         {
                             "Name": "flight_id",
@@ -2668,7 +2744,7 @@
                     "MethodName": "update",
                     "Synopsis": "Updates tiebreaker preferences for a resource",
                     "HTTPMethod": "PUT",
-                    "URI": "/flights/:flight_id/flight_stages/:flight_stage_id/tiebreak_preferences/",
+                    "URI": "/flights/:flight_id/tiebreak_preference/",
                     "RequiresOAuth": "Y",
                     "parameters": [
                         {
@@ -2677,13 +2753,6 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the tournament"
-                        },
-                        {
-                            "Name": "flight_stage_id",
-                            "Required": "N",
-                            "Default": "",
-                            "Type": "String",
-                            "Description": "The id of the flight stage"
                         },
                         {
                             "Name": "flight_id",
@@ -2932,7 +3001,7 @@
                 },
                 {
                     "MethodName": "remove_team",
-                    "Synopsis": "Removes a team from the tournament, if it has not yet been added to a flight.\nWill not remove a team that has already been added to a flight. Use flights#remove_team.",
+                    "Synopsis": "Removes a team from the tournament, if it has not yet been added to a flight.Will not remove a team that has already been added to a flight. Use flights#remove_team.",
                     "HTTPMethod": "DELETE",
                     "URI": "/tournaments/:tournament_id/remove_team/:team_id",
                     "RequiresOAuth": "Y",
@@ -2971,7 +3040,7 @@
                 },
                 {
                     "MethodName": "edit_flight_defaults",
-                    "Synopsis": "Edits flight defaults for the tournament, including default flight stage settings.  \nPassing flight_stage_templates parameter causes the following behavior:\nIf a flight_stage_template id is passed, it will attempt to update an existing flight_stage_template\nIf the flight_stage_template does not currently exist, it will create it\n\nPassing in an array of ids in the flight_stage_templates_delete parameter will cause these tempaltes to be deleted.\nPlease refer to the FlightStage resource for a list of valid paramters for flight stage templates.",
+                    "Synopsis": "Edits flight defaults for the tournament, including default flight stage settings.  Passing flight_stage_templates parameter causes the following behavior:If a flight_stage_template id is passed, it will attempt to update an existing flight_stage_templateIf the flight_stage_template does not currently exist, it will create itPassing in an array of ids in the flight_stage_templates_delete parameter will cause these tempaltes to be deleted.Please refer to the FlightStage resource for a list of valid paramters for flight stage templates.",
                     "HTTPMethod": "PUT",
                     "URI": "/tournaments/:tournament_id/flight_defaults",
                     "RequiresOAuth": "Y",
