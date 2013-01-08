@@ -10,7 +10,7 @@
     },
     "user-service": {
         "name": "UserService",
-        "remoteConfigUrl": "http://api-stat-ngin.stage.ngin-staging.com/doc/iodocs.json",
+        "remoteConfigUrl": "http://user-service.stage.ngin-staging.com/doc/iodocs.json",
         "protocol": "http",
         "baseURL": "user-service.stage.ngin-staging.com",
         "publicPath": "",
