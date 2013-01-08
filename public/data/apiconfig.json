@@ -1,8 +1,18 @@
 {
     "statngin": {
         "name": "StatNgin",
+        "remoteConfigUrl": "http://api-stat-ngin.stage.ngin-staging.com/doc/iodocs.json",
         "protocol": "http",
         "baseURL": "api-stat-ngin.stage.ngin-staging.com",
+        "publicPath": "",
+        "auth":"key",
+        "keyParam":"access_token"
+    },
+    "user-service": {
+        "name": "UserService",
+        "remoteConfigUrl": "http://api-stat-ngin.stage.ngin-staging.com/doc/iodocs.json",
+        "protocol": "http",
+        "baseURL": "user-service.stage.ngin-staging.com",
         "publicPath": "",
         "auth":"key",
         "keyParam":"access_token"

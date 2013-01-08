@@ -70,12 +70,47 @@ db.on("error", function(err) {
 // Load API Configs
 //
 var apisConfig;
+var apiCache = {};
 fs.readFile(__dirname +'/public/data/apiconfig.json', 'utf-8', function(err, data) {
     if (err) throw err;
     apisConfig = JSON.parse(data);
     if (config.debug) {
          console.log(util.inspect(apisConfig));
     }
+    getConfigs = function(){
+        if (apisConfig) {
+            for (var aconfig in apisConfig) {
+                cfg = apisConfig[aconfig]
+                if (cfg.remoteConfigUrl) {
+                    var options = url.parse(cfg.remoteConfigUrl)
+                    var remoteApiCall = http.request(options, function(response) {
+                        var str = '';
+
+                        response.on('data', function (chunk) {
+                            str += chunk;
+                        });
+
+                        response.on('end', function () {
+                            try {
+                                apiCache[aconfig] = JSON.parse(str)
+                            } catch(e) {
+                                console.log("Load of " + aconfig + " failed.")
+                            }
+                        });
+                    });
+                    remoteApiCall.end();
+                } else {
+                    try {
+                        apiCache[aconfig] = JSON.parse(fs.readFileSync(__dirname + '/public/data/' + aconfig + '.json'));
+                    } catch(e) {
+                        console.log("Load of " + aconfig + " failed.")
+                    }
+                }
+            }
+        }
+    }
+    getConfigs();
+    setInterval(getConfigs,15 * 60 * 1000); //Refresh every 15 min.
 });
 
 if (config.auth) {
@@ -672,8 +707,7 @@ app.dynamicHelpers({
     },
     apiDefinition: function(req, res) {
         if (req.params.api) {
-            var data = fs.readFileSync(__dirname + '/public/data/' + req.params.api + '.json');
-            return JSON.parse(data);
+            return apiCache[req.params.api];
         }
     }
 })
@@ -684,14 +718,14 @@ app.dynamicHelpers({
 //
 app.get('/', function(req, res) {
     // Redirect to the first api in apiconfig
-    var api;
-    for (var key in apisConfig) {
-        api = key;
-    }
-    res.redirect('/' + api);
-    // res.render('listAPIs', {
-    //     title: config.title
-    // });
+    //var api;
+    //for (var key in apisConfig) {
+    //    api = key;
+    //}
+    //res.redirect('/' + api);
+     res.render('listAPIs', {
+         title: config.title
+     });
 });
 
 // Process the API request
