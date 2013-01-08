@@ -79,10 +79,11 @@ fs.readFile(__dirname +'/public/data/apiconfig.json', 'utf-8', function(err, dat
     }
     getConfigs = function(){
         if (apisConfig) {
-            for (var aconfig in apisConfig) {
+            Object.keys(apisConfig).forEach(function(aconfig) {
                 cfg = apisConfig[aconfig]
                 if (cfg.remoteConfigUrl) {
                     var options = url.parse(cfg.remoteConfigUrl)
+                    
                     var remoteApiCall = http.request(options, function(response) {
                         var str = '';
 
@@ -106,7 +107,7 @@ fs.readFile(__dirname +'/public/data/apiconfig.json', 'utf-8', function(err, dat
                         console.log("Load of " + aconfig + " failed.")
                     }
                 }
-            }
+            });
         }
     }
     getConfigs();
