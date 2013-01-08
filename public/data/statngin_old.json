@@ -263,6 +263,20 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the league this division belongs to "
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -309,6 +323,20 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the league this division belongs to "
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -389,7 +417,14 @@
                             "Required": "N",
                             "Default": "",
                             "Type": "Integer",
-                            "Description": "The number of teams that should advance from this pool [Pool Play]"
+                            "Description": "The minimum number of teams that should advance from this pool [Pool Play]"
+                        },
+                        {
+                            "Name": "wild_cards",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of wild card teams that should advance among all pools [Pool Play]"
                         },
                         {
                             "Name": "rounds",
@@ -522,6 +557,13 @@
                             "Description": "The number of teams that should advance from this pool [Pool Play]"
                         },
                         {
+                            "Name": "wild_cards",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Integer",
+                            "Description": "The number of wild card teams that should advance among all pools [Pool Play]"
+                        },
+                        {
                             "Name": "rounds",
                             "Required": "N",
                             "Default": "",
@@ -576,6 +618,13 @@
                             "Default": "",
                             "Type": "Integer",
                             "Description": "TBD [Double Elimination]"
+                        },
+                        {
+                            "Name": "seeds",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Array",
+                            "Description": "Array of hashes. Hash keys are 'team_id' and 'seed'"
                         }
                     ]
                 },
@@ -599,6 +648,66 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the flight stage "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "add_team",
+                    "Synopsis": "Add a team to a flight stage",
+                    "HTTPMethod": "PUT",
+                    "URI": "/flights/:flight_id/flight_stages/:id/add_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight stage "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "remove_team",
+                    "Synopsis": "Remove a team from a flight",
+                    "HTTPMethod": "DELETE",
+                    "URI": "/flights/:flight_id/flight_stages/:id/remove_team/:team_id",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "flight_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight "
+                        },
+                        {
+                            "Name": "team_id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the team "
                         }
                     ]
                 }
@@ -657,6 +766,13 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The play format of the flight"
+                        },
+                        {
+                            "Name": "desription",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The flight description"
                         }
                     ]
                 },
@@ -731,6 +847,13 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The tournament_id of the flight"
+                        },
+                        {
+                            "Name": "desription",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The flight description"
                         }
                     ]
                 },
@@ -1003,6 +1126,20 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The org_id of the league"
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -1056,6 +1193,20 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The org_id of the league"
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -1658,6 +1809,19 @@
                             "Description": "The id of the season "
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name": "Sport",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns all sports.",
+                    "HTTPMethod": "GET",
+                    "URI": "/sports",
+                    "RequiresOAuth": "Y",
+                    "parameters": []
                 }
             ]
         },
@@ -2366,8 +2530,22 @@
                             "Name": "org_id",
                             "Required": "N",
                             "Default": "",
-                            "Type": "String",
+                            "Type": "Array",
                             "Description": "The org_id of the team"
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -2419,8 +2597,22 @@
                             "Name": "org_id",
                             "Required": "N",
                             "Default": "",
-                            "Type": "String",
+                            "Type": "Array",
                             "Description": "The org_id of the team"
+                        },
+                        {
+                            "Name": "primary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the primary_color of the team"
+                        },
+                        {
+                            "Name": "secondary_color",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "the secondary_color of the team"
                         }
                     ]
                 },
@@ -2437,6 +2629,158 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the team "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "TiebreakCriteria",
+            "methods": [
+                {
+                    "MethodName": "index",
+                    "Synopsis": "Returns tiebreak criteria",
+                    "HTTPMethod": "GET",
+                    "URI": "/tiebreak_criteria",
+                    "RequiresOAuth": "Y",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "name": "TiebreakPreference",
+            "methods": [
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Returns tiebreaker preferences for a resource",
+                    "HTTPMethod": "GET",
+                    "URI": "/tournaments/:tournament_id/tiebreak_preference/",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "tournament_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament to get the tiebreaker preferences for"
+                        },
+                        {
+                            "Name": "flight_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight to get the tiebreaker preferences for"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show",
+                    "Synopsis": "Returns tiebreaker preferences for a resource",
+                    "HTTPMethod": "GET",
+                    "URI": "/flights/:flight_id/tiebreak_preference/",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "tournament_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament to get the tiebreaker preferences for"
+                        },
+                        {
+                            "Name": "flight_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight to get the tiebreaker preferences for"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Updates tiebreaker preferences for a resource",
+                    "HTTPMethod": "PUT",
+                    "URI": "/tournaments/:tournament_id/tiebreak_preference/",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "tournament_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament"
+                        },
+                        {
+                            "Name": "flight_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight"
+                        },
+                        {
+                            "Name": "primary_criteria",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Hash",
+                            "Description": "Tiebreak criteria hash of the form: {key: Standings key (try 'w'), direction: 'asc' or 'desc',scope: 'all' or 'common'}"
+                        },
+                        {
+                            "Name": "secondary_criteria",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Array",
+                            "Description": "Array of tiebreaker criteria, takes the same form as above"
+                        },
+                        {
+                            "Name": "repeat",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Boolean",
+                            "Description": "Whether to use the repeat/loop method of tiebreaking"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "update",
+                    "Synopsis": "Updates tiebreaker preferences for a resource",
+                    "HTTPMethod": "PUT",
+                    "URI": "/flights/:flight_id/tiebreak_preference/",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "tournament_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament"
+                        },
+                        {
+                            "Name": "flight_id",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the flight"
+                        },
+                        {
+                            "Name": "primary_criteria",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Hash",
+                            "Description": "Tiebreak criteria hash of the form: {key: Standings key (try 'w'), direction: 'asc' or 'desc',scope: 'all' or 'common'}"
+                        },
+                        {
+                            "Name": "secondary_criteria",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Array",
+                            "Description": "Array of tiebreaker criteria, takes the same form as above"
+                        },
+                        {
+                            "Name": "repeat",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Boolean",
+                            "Description": "Whether to use the repeat/loop method of tiebreaking"
                         }
                     ]
                 }
@@ -2504,11 +2848,18 @@
                             "Description": "The end date of the tournament"
                         },
                         {
-                            "Name": "hq",
+                            "Name": "primary_venue",
                             "Required": "N",
                             "Default": "",
                             "Type": "String",
-                            "Description": "The tournament headquarters"
+                            "Description": "The primary vunue for the tournament"
+                        },
+                        {
+                            "Name": "description",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The tournament description"
                         }
                     ]
                 },
@@ -2578,11 +2929,18 @@
                             "Description": "The end date of the tournament"
                         },
                         {
-                            "Name": "hq",
+                            "Name": "primary_venue",
                             "Required": "N",
                             "Default": "",
                             "Type": "String",
-                            "Description": "The tournament headquarters"
+                            "Description": "The primary vunue for the tournament"
+                        },
+                        {
+                            "Name": "description",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The tournament description"
                         }
                     ]
                 },
@@ -2643,7 +3001,7 @@
                 },
                 {
                     "MethodName": "remove_team",
-                    "Synopsis": "Removes a team from the tournament, if it has not yet been added to a flight. Will not remove a team that has already been added to a flight. Use flights#remove_team.",
+                    "Synopsis": "Removes a team from the tournament, if it has not yet been added to a flight.Will not remove a team that has already been added to a flight. Use flights#remove_team.",
                     "HTTPMethod": "DELETE",
                     "URI": "/tournaments/:tournament_id/remove_team/:team_id",
                     "RequiresOAuth": "Y",
@@ -2661,6 +3019,52 @@
                             "Default": "",
                             "Type": "String",
                             "Description": "The id of the team "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "show_flight_defaults",
+                    "Synopsis": "Shows flight defaults for the tournament",
+                    "HTTPMethod": "GET",
+                    "URI": "/tournaments/:tournament_id/flight_defaults",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament "
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "edit_flight_defaults",
+                    "Synopsis": "Edits flight defaults for the tournament, including default flight stage settings.  Passing flight_stage_templates parameter causes the following behavior:If a flight_stage_template id is passed, it will attempt to update an existing flight_stage_templateIf the flight_stage_template does not currently exist, it will create itPassing in an array of ids in the flight_stage_templates_delete parameter will cause these tempaltes to be deleted.Please refer to the FlightStage resource for a list of valid paramters for flight stage templates.",
+                    "HTTPMethod": "PUT",
+                    "URI": "/tournaments/:tournament_id/flight_defaults",
+                    "RequiresOAuth": "Y",
+                    "parameters": [
+                        {
+                            "Name": "id",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "String",
+                            "Description": "The id of the tournament "
+                        },
+                        {
+                            "Name": "flight_stage_templates",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Array",
+                            "Description": ""
+                        },
+                        {
+                            "Name": "flight_stage_templates_delete",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "Array",
+                            "Description": ""
                         }
                     ]
                 }
