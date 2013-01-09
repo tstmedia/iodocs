@@ -16,5 +16,23 @@
         "publicPath": "",
         "auth":"key",
         "keyParam":"access_token"
+    },
+    "venue-service": {
+        "name": "VenueService",
+        "remoteConfigUrl": "http://venue-service.stage.ngin-staging.com/doc/iodocs.json",
+        "protocol": "http",
+        "baseURL": "venue-service.stage.ngin-staging.com",
+        "publicPath": "",
+        "auth":"key",
+        "keyParam":"access_token"
+    },
+    "boss-service": {
+        "name": "BossService",
+        "remoteConfigUrl": "http://boss-service.stage.ngin-staging.com/doc/iodocs.json",
+        "protocol": "http",
+        "baseURL": "boss-service.stage.ngin-staging.com",
+        "publicPath": "",
+        "auth":"key",
+        "keyParam":"access_token"
     }
 }
