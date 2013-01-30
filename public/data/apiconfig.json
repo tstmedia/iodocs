@@ -5,8 +5,16 @@
         "protocol": "http",
         "baseURL": "api-stat-ngin.stage.ngin-staging.com",
         "publicPath": "",
-        "auth":"key",
-        "keyParam":"access_token"
+        "privatePath": "",
+        "auth":"oauth",
+        "oauth" : {
+           "baseURL": "https://user-service.stage.ngin-staging.com",
+           "authorizeURL": "/oauth/authorize",
+           "accessTokenURL": "/oauth/token"
+        },
+        "headers": {
+            "Accept": "application/json,application/vnd.stat-ngin.v2"
+        }
     },
     "user-service": {
         "name": "UserService",
@@ -14,8 +22,16 @@
         "protocol": "http",
         "baseURL": "user-service.stage.ngin-staging.com",
         "publicPath": "",
-        "auth":"key",
-        "keyParam":"access_token"
+        "privatePath": "",
+        "auth": "oauth",
+        "oauth" : {
+           "baseURL": "https://user-service.stage.ngin-staging.com",
+           "authorizeURL": "/oauth/authorize",
+           "accessTokenURL": "/oauth/token"
+        },
+        "headers": {
+            "Accept": "application/json"
+        }
     },
     "venue-service": {
         "name": "VenueService",
@@ -23,8 +39,16 @@
         "protocol": "http",
         "baseURL": "venue-service.stage.ngin-staging.com",
         "publicPath": "",
-        "auth":"key",
-        "keyParam":"access_token"
+        "privatePath": "",
+        "auth":"oauth",
+        "oauth" : {
+           "baseURL": "https://user-service.stage.ngin-staging.com",
+           "authorizeURL": "/oauth/authorize",
+           "accessTokenURL": "/oauth/token"
+        },
+        "headers": {
+            "Accept": "application/json"
+        }
     },
     "boss-service": {
         "name": "BossService",
@@ -32,7 +56,15 @@
         "protocol": "http",
         "baseURL": "boss-service.stage.ngin-staging.com",
         "publicPath": "",
-        "auth":"key",
-        "keyParam":"access_token"
+        "privatePath": "",
+        "auth":"oauth",
+        "oauth" : {
+           "baseURL": "https://user-service.stage.ngin-staging.com",
+           "authorizeURL": "/oauth/authorize",
+           "accessTokenURL": "/oauth/token"
+        },
+        "headers": {
+            "Accept": "application/json"
+        }
     }
 }

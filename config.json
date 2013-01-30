@@ -2,8 +2,8 @@
     "title" : "Ngin Platform API Docs - Staging",
     "address": "0.0.0.0",
     "port" : 3000,
-    "debug" : false,
-    "auth": true,
+    "debug" : true,
+    "auth": false,
     "sessionSecret" : "12345",
     "redis" : {
                 "host" : "localhost",
@@ -11,4 +11,5 @@
                 "password" : "",
                 "database" : "0"
              }
+
 }

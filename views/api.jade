@@ -1,5 +1,5 @@
 h1=apiInfo.name 
-- if (session.authed && apiInfo.oauth && apiInfo.oauth.type =='three-legged')
+- if (session.authed && apiInfo.oauth)
     - var authed ='authed'
 - else
     - var authed =''
@@ -34,7 +34,7 @@ form#credentials
                  - if (apiInfo.oauth || apiInfo.signature)
                      label(for='secret') Shared Secret
                      input(id='secret', name='secret', value=defaultSecret, style='color=#EEEEEE')
-             - if (apiInfo.oauth && apiInfo.oauth.type !='two-legged')
+             - if (apiInfo.oauth)
                  div
                     input(name='oauth', value='Authenticate with OAuth', type='submit', id='oauth-auth')
 
