@@ -177,6 +177,7 @@ function oauth(req, res, next) {
             console.log('clientId: ' + clientId);
             console.log('clientSecret: ' + clientSecret);
         };
+
         // Check if the API even uses OAuth, then if the method requires oauth, then if the session is not authed
         if (req.body.oauth == 'authrequired' && (!req.session[apiName] || !req.session[apiName].authed) ) {
             if (config.debug) {
@@ -314,12 +315,12 @@ function processRequest(req, res, next) {
             console.log('Setting default headers');
         }
 
-        for (var key in apiConfig.headers) {
-            if (!options.headers[key]) {
+        for (var header in apiConfig.headers) {
+            if (!options.headers[header]) {
                 if (config.debug) {
-                    console.log('Setting header: ' + key + ':' + apiConfig.headers[key]);
+                    console.log('Setting header: ' + header + ':' + apiConfig.headers[header]);
                 }
-                options.headers[key] = apiConfig.headers[key];
+                options.headers[header] = apiConfig.headers[header];
             }
         }
     }
@@ -359,7 +360,6 @@ function processRequest(req, res, next) {
                     oa._request(options.method, privateReqURL, options.headers, requestBody, accessToken, function (error, data, response) {
                         req.call = privateReqURL;
 
-                        // console.log(util.inspect(response));
                         if (error) {
                             console.log('Got error: ' + util.inspect(error));
 
